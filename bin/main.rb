@@ -140,7 +140,7 @@ scheduler.every '31' do
   reply_cls.reply_mthd
 end
 
-scheduler.join
+# scheduler.join
 
 # rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Metrics/AbcSize
