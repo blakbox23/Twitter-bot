@@ -33,7 +33,7 @@ end
 
 tweet_cls = TweetCls.new(client)
 
-scheduler.every '35' do
+scheduler.every '2m' do
   tweet_cls.tweet_mthd
 end
 
@@ -62,7 +62,7 @@ class RetweetCls
 end
 retweet_cls = RetweetCls.new(client)
 
-scheduler.every '19m' do
+scheduler.every '3m' do
   retweet_cls.retweet_mthd
 end
 
@@ -136,7 +136,7 @@ end
 
 reply_cls = ReplyCls.new(client)
 
-scheduler.every '20' do
+scheduler.every '31' do
   reply_cls.reply_mthd
 end
 
