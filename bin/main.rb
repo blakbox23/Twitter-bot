@@ -50,3 +50,53 @@ class TweetCls
       tweet_cls.tweet_mthd
   end
   
+  # REPLY
+class ReplyCls
+    $already_replied = []
+  
+    def reply_mthd
+      talker = Talker.new
+      $client.search( "@blakbot23", result_type: "recent").take(1).each do |tweet|
+        # puts tweet.user.screen_name
+  
+      if  !($already_replied.include? tweet.id ) then
+        tweet_text = tweet.text
+        puts "replied to: #{tweet.user.screen_name}"
+  
+        puts tweet.retweeted_status.text
+        $already_replied.push(tweet.id)
+        if talker.salutations_mthd.any? {|item| tweet_text.downcase.split(" ").include?(item)} then
+         puts "right : #replied to salutation"
+         $client.update("@#{tweet.user.screen_name}  #{talker.multi_salutations_mthd.sample.capitalize} human, I'm a bot", in_reply_to_status_id: tweet.id)
+         return $client.update("@#{tweet.user.screen_name}  #{talker.multi_salutations_mthd.sample.capitalize} human, I'm a bot", in_reply_to_status_id: tweet.id)
+        elsif talker.multi_salutations_mthd.any? {|item| tweet_text.downcase.include?(item)} then
+         $client.update("@#{tweet.user.screen_name} #{talker.salutations_mthd.sample.capitalize}", in_reply_to_status_id: tweet.id)
+         return $client.update("@#{tweet.user.screen_name} #{talker.salutations_mthd.sample.capitalize}", in_reply_to_status_id: tweet.id)
+          puts "right : replied to multi_salutation"
+        elsif talker.purpose_quiz_mthd.any? {|item| tweet_text.downcase.include?(item)} then
+         $client.update("@#{tweet.user.screen_name} #{talker.purpose_ans_mthd.sample.capitalize}", in_reply_to_status_id: tweet.id)
+         return $client.update("@#{tweet.user.screen_name} #{talker.purpose_ans_mthd.sample.capitalize}", in_reply_to_status_id: tweet.id)
+          puts "right : replied to purpose"
+        elsif talker.opinion_quiz_mthd.any? {|item| tweet_text.downcase.include? (item)} then
+          puts "right : replied to opinion"
+          $client.update("@#{tweet.user.screen_name}  #{talker.opinions.sample.capitalize}", in_reply_to_status_id: tweet.id)
+          return $client.update("@#{tweet.user.screen_name}  #{talker.opinions.sample.capitalize}", in_reply_to_status_id: tweet.id)
+        elsif talker.byes_mthd.any? {|item| tweet_text.downcase.include? (item)} then
+          puts "right: replied to thanks/byes"
+          $client.update("@#{tweet.user.screen_name} #{talker.byes_mthd.sample.capitalize} see you later", in_reply_to_status_id: tweet.id)
+          return $client.update("@#{tweet.user.screen_name} #{talker.byes_mthd.sample.capitalize} see you later", in_reply_to_status_id: tweet.id)
+        else     
+          $client.update("@#{tweet.user.screen_name} Sorry I didn't get that", in_reply_to_status_id: tweet.id)
+          puts "stopped"
+          return $client.update("@#{tweet.user.screen_name} Sorry I didn't get that", in_reply_to_status_id: tweet.id)
+        end
+      end
+    end
+  end
+  end
+  
+  reply_cls = ReplyCls.new
+  
+  scheduler.every '31s' do
+    reply_cls.reply_mthd
+  end
