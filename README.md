@@ -38,7 +38,7 @@ To interact the bot, simply mention it in one of your tweets @blakbot23, or visi
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/blakbox23/capstone/issues/2).
+Feel free to check the [issues page](https://github.com/blakbox23/bot/issues).
 
 ## Show your support
 
