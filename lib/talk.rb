@@ -45,11 +45,6 @@ class Talker
       ]
     end
   end
-  
-  class BlackList
-      def blacklist_mthd
-          blacklist_arr = ["drag", "fuck", "nigga"]
-      end
-  end
+
   
   

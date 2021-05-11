@@ -1,4 +1,4 @@
-require '../bin/main.rb'
+require_relative '../bin/main.rb'
 
 describe TweetCls do
   let (:rubybenefit) {RubyBenefits.new.benefits_of_ruby}
