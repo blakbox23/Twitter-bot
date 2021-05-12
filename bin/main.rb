@@ -12,10 +12,10 @@ require_relative '../lib/talk'
 scheduler = Rufus::Scheduler.new
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'mZQnUIy30Ztbm0AQcAk6IvtKE'
-  config.consumer_secret = 'zr6hga3bmlCFuGBU3XbzUipIEWOKdJ4tvQbhVYg5RIpR38D0iO'
-  config.access_token = '1390589480487227396-ZKzkSr9fAiy36lNPBwSQXQRy7egPXo'
-  config.access_token_secret = 'pphByrgoIvyFnXc3KIRs9EwBU4cSvNjFTPDKuMYryysen'
+  config.consumer_key = 'C-K'
+  config.consumer_secret = 'C-S'
+  config.access_token = 'A-T'
+  config.access_token_secret = 'A-T-S'
 end
 
 # TWEETS

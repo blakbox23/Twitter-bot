@@ -1,10 +1,17 @@
 require_relative '../bin/main'
 
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key = 'C-K'
+  config.consumer_secret = 'C-S'
+  config.access_token = 'A-T'
+  config.access_token_secret = 'A-T-S'
+end
+
 describe TweetCls do
   let(:rubybenefit) { RubyBenefits.new.benefits_of_ruby }
-  let(:tweetcls) { TweetCls.new.tweet_mthd }
+  let(:tweetcls) { TweetCls.new(client).tweet_mthd }
   describe '#tweet_mthd' do
-    context 'checks that a twet comes from the benefits array' do
+    context 'checks that a tweet comes from the benefits array' do
       it 'returns true if the tweet is from the benefits array' do
         expect(rubybenefit.include?(tweetcls)).to be true
       end
@@ -16,7 +23,7 @@ describe TweetCls do
 end
 
 describe RetweetCls do
-  let(:retweetcls) { RetweetCls.new.retweet_mthd }
+  let(:retweetcls) { RetweetCls.new(client).retweet_mthd }
 
   describe '#retweet_mthd' do
     it 'checks whether the retweet contains links' do
@@ -26,7 +33,7 @@ describe RetweetCls do
 end
 
 describe ReplyCls do
-  let(:replycls) { ReplyCls.new.reply_mthd }
+  let(:replycls) { ReplyCls.new(client).reply_mthd }
   let(:salutations) { Talker.new.salutations_mthd }
   let(:purpose) { Talker.new.purpose_quiz_mthd }
   let(:opinion) { Talker.new.opinion_quiz_mthd }
