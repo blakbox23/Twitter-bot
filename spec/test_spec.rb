@@ -1,10 +1,10 @@
 require_relative '../bin/main'
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'C-K'
-  config.consumer_secret = 'C-S'
-  config.access_token = 'A-T'
-  config.access_token_secret = 'A-T-S'
+  config.consumer_key = 'Ii5FCHR6jaFsPZaOWKvjNRqV6'
+  config.consumer_secret = '4Hh2o83hOAj07gABIVdpBcPdkzezwEsGUNlre4su8JHfm1WFhy'
+  config.access_token = '1390589480487227396-JnSwqwzp9e5vatYKXzR3sK2Ot001EK'
+  config.access_token_secret = 'mJhVdDcEyGjtE4csbArgUDQX9h5erWhr6L9kBC7M1PFhu'
 end
 
 describe TweetCls do
