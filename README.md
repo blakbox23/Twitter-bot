@@ -22,7 +22,7 @@ After cloning the repo and installing the required gems by running bundle instal
 1. Log in into your twitter developer account, [developer.twitter.com](developer.twitter.com) to get api and token keys.
 2. Copy the four keys 
 3. In the project directory navigate to the bin/main.rb and the spec/tests_spec.rb and paste the keys in the appropriate fields. 
-For example replace `'C-K'` with the consumer key, and so on.
+For example replace `CONSUMER_KEY` with your new consumer key, and so on.
 
 Alternatively, you can find these keys in the project review request form.
 
