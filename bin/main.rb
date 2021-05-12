@@ -28,7 +28,7 @@ end
 scheduler.every '31' do
   reply_cls.reply_mthd
 end
-scheduler.every '5m' do
+scheduler.in '3m' do
   tweet_cls.tweet_mthd
 end
 
