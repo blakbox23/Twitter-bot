@@ -1,4 +1,4 @@
-require_relative '../bin/main'
+require '../bin/main'
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key = 'Ii5FCHR6jaFsPZaOWKvjNRqV6'
