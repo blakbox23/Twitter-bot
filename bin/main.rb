@@ -8,14 +8,16 @@ require 'dotenv/load'
 require 'twitter'
 require 'rufus-scheduler'
 require_relative '../lib/talk'
+require '../tokens'
+
 
 scheduler = Rufus::Scheduler.new
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'C-K'
-  config.consumer_secret = 'C-S'
-  config.access_token = 'A-T'
-  config.access_token_secret = 'A-T-S'
+  config.consumer_key = CONSUMER_KEY
+  config.consumer_secret =  CONSUMER_SECRET
+  config.access_token = ACCESS_TOKEN
+  config.access_token_secret = ACCESS_TOKEN_SECERT
 end
 
 # TWEETS
@@ -137,11 +139,11 @@ scheduler.every '31' do
   reply_cls.reply_mthd
 end
 
-scheduler.every '2m' do
+scheduler.every '3m' do
   tweet_cls.tweet_mthd
 end
 
-# scheduler.join
+scheduler.join
 
 # rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Metrics/AbcSize
