@@ -10,11 +10,12 @@ require 'rufus-scheduler'
 require_relative '../lib/talk'
 
 scheduler = Rufus::Scheduler.new
+
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'consumer_key'
-  config.consumer_secret = 'consumer_secret'
-  config.access_token = 'access_token'
-  config.access_token_secret = 'access_token_secret'
+  config.consumer_key = 'mZQnUIy30Ztbm0AQcAk6IvtKE'
+  config.consumer_secret = 'zr6hga3bmlCFuGBU3XbzUipIEWOKdJ4tvQbhVYg5RIpR38D0iO'
+  config.access_token = '1390589480487227396-ZKzkSr9fAiy36lNPBwSQXQRy7egPXo'
+  config.access_token_secret = 'pphByrgoIvyFnXc3KIRs9EwBU4cSvNjFTPDKuMYryysen'
 end
 
 # TWEETS
@@ -32,10 +33,6 @@ class TweetCls
 end
 
 tweet_cls = TweetCls.new(client)
-
-scheduler.every '2m' do
-  tweet_cls.tweet_mthd
-end
 
 # RETWEETS
 class RetweetCls
@@ -61,10 +58,6 @@ class RetweetCls
   end
 end
 retweet_cls = RetweetCls.new(client)
-
-scheduler.every '3m' do
-  retweet_cls.retweet_mthd
-end
 
 # REPLY
 class ReplyCls
@@ -136,11 +129,19 @@ end
 
 reply_cls = ReplyCls.new(client)
 
+scheduler.every '3m' do
+  retweet_cls.retweet_mthd
+end
+
 scheduler.every '31' do
   reply_cls.reply_mthd
 end
 
-# scheduler.join
+scheduler.every '2m' do
+  tweet_cls.tweet_mthd
+end
+
+scheduler.join
 
 # rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Metrics/AbcSize
