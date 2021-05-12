@@ -1,6 +1,5 @@
 require_relative '../bin/main'
 
-
 client = Twitter::REST::Client.new do |config|
   config.consumer_key = 'Ii5FCHR6jaFsPZaOWKvjNRqV6'
   config.consumer_secret = '4Hh2o83hOAj07gABIVdpBcPdkzezwEsGUNlre4su8JHfm1WFhy'
