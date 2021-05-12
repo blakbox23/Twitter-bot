@@ -14,17 +14,23 @@ To access the code to this bot,
 1. Clone this repo to a directory of your choosing
 2. Run bundle install
 
+The last line in the bin/main.rb file `scheduler.join` has been commented out to allow Rspec to finish during testing. Start by uncommenting it for excecution, 
+but remember to comment it out during testing.
+
 ## Setup
 After cloning the repo and installing the required gems by running bundle install, the next thing you need is to get access to the bot account. To do this, 
 1. Log in into your twitter developer account, [developer.twitter.com](developer.twitter.com) to get api and token keys.
 2. Copy the four keys 
 3. In the project directory navigate to bin/main.rb file
 4. Replace the four keys on the file with your new access keys.
+5. Paste the same keys in the spec/test_spec.rb file.
 
 Alternatively, you can find these keys in the project review request form.
 
 ## Run tests
-Run rspec in your terminal to run tests.
+After replacing the consumer and token keys on the spec/test_spec.rb,
+1. Comment out the last line of bin/main.rb `scheduler.join`
+2. Run rspec in your terminal to run tests.
 
 ## Usage
 To interact the bot, simply mention it in one of your tweets @blakbot23, or visit the home page to see some of its tweets and retweets.
