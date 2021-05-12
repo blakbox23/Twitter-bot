@@ -21,8 +21,8 @@ but remember to comment it out during testing.
 After cloning the repo and installing the required gems by running bundle install, the next thing you need is to get access to the bot account. To do this, 
 1. Log in into your twitter developer account, [developer.twitter.com](developer.twitter.com) to get api and token keys.
 2. Copy the four keys 
-3. In the project directory navigate to tokens.rb file
-4. Replace the four keys on the file with your new access keys.
+3. In the project directory navigate to the bin/main.rb and the spec/tests_spec.rb and paste the keys in the appropriate fields. 
+For example replace `'C-K'` with the consumer key, and so on.
 
 Alternatively, you can find these keys in the project review request form.
 
