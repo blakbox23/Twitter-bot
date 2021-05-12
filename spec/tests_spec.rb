@@ -1,10 +1,15 @@
-require_relative '../bin/main'
+require_relative '../lib/tweet'
+require_relative '../lib/retweet'
+require_relative '../lib/reply'
+require_relative '../tokens'
+require_relative '../lib/talk'
+require 'twitter'
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'Ii5FCHR6jaFsPZaOWKvjNRqV6'
-  config.consumer_secret = '4Hh2o83hOAj07gABIVdpBcPdkzezwEsGUNlre4su8JHfm1WFhy'
-  config.access_token = '1390589480487227396-JnSwqwzp9e5vatYKXzR3sK2Ot001EK'
-  config.access_token_secret = 'mJhVdDcEyGjtE4csbArgUDQX9h5erWhr6L9kBC7M1PFhu'
+  config.consumer_key = CONSUMER_KEY
+  config.consumer_secret = CONSUMER_SECRET
+  config.access_token = ACCESS_TOKEN
+  config.access_token_secret = ACCESS_TOKEN_SECRET
 end
 
 describe TweetCls do
