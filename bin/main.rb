@@ -4,19 +4,18 @@
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/CyclomaticComplexity
 
-require 'dotenv/load'
+require 'dotenv'
 require 'twitter'
 require 'rufus-scheduler'
 require_relative '../lib/talk'
-require '../tokens'
 
 scheduler = Rufus::Scheduler.new
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = CONSUMER_KEY
-  config.consumer_secret = CONSUMER_SECRET
-  config.access_token = ACCESS_TOKEN
-  config.access_token_secret = ACCESS_TOKEN_SECERT
+  config.consumer_key = ENV['CONSUMER_KEY']
+  config.consumer_secret = ENV['CONSUMER_SECRET']
+  config.access_token = ENV['ACCESS_TOKEN']
+  config.access_token_secret = ENV['ACCESS_TOKEN_SECERT']
 end
 
 # TWEETS
@@ -138,7 +137,7 @@ scheduler.every '31' do
   reply_cls.reply_mthd
 end
 
-scheduler.every '3m' do
+scheduler.every '31' do
   tweet_cls.tweet_mthd
 end
 
