@@ -1,5 +1,5 @@
 # Twitter Bot
-[@blakbot23](https://twitter.com/blakbot23) is a twitter bot built with ruby. It can tweet, retweet and reply to mentions. At different time intervals, it tweets fun factual statements about ruby, retweets tweets about coding, and searches and replies to mentions. For the mentions, it can answer salutation, purpose, and opinion questions.
+[@blakbot23](https://twitter.com/blakbot23) is a twitter bot built with ruby. It can tweet, retweet and reply to mentions. At different time intervals, it tweets fun facts about ruby, retweets tweets about coding, and searches and replies to mentions. For the mentions, it can answer salutation, purpose, and opinion questions.
 
 ![screenshot](./assets/twitter-mobi.png)
 
