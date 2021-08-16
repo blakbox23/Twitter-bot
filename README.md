@@ -9,6 +9,7 @@
 
 ## Prerequisites
 - Ruby
+- Twitter
 
 ## Getting started
 To access the code to this bot,
